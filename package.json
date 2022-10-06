@@ -1,0 +1,57 @@
+{
+	"name": "credits-log",
+	"version": "1.0.0",
+	"description": "Rollup plugin to add credits message on debug console",
+	"main": "index.js",
+	"files": [
+		"bin",
+		"lib",
+		"index.js"
+	],
+	"bin": {
+		"credits-log": "./bin/credits-log"
+	},
+	"scripts": {
+		"test": "jest --runInBand --passWithNoTests",
+		"prepublish": "yarn test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/klich3/credits-log"
+	},
+	"keywords": [
+		"rollup",
+		"rollup-plugin",
+		"credits-log",
+		"cli",
+		"credits",
+		"contributors",
+		"humans"
+	],
+	"author": "Anthony Sychev <hello@dm211.com> (https://dm211.com)",
+	"bugs": "https://github.com/klich3/credits-log/issues",
+	"contributors": "https://github.com/klich3/credits-log/graphs/contributors",
+	"license": "MIT",
+	"funding": {
+		"type": "individual",
+		"url": "https://www.buymeacoffee.com/twooneone"
+	},
+	"dependencies": {
+		"@babel/code-frame": "^7.0.0",
+		"fs-extra": "^10.1.0",
+		"inquirer": "^9.1.2",
+		"interactive-cli": "^1.1.6",
+		"jest-worker": "^24.0.0",
+		"yargs": "17.5.1"
+	},
+	"peerDependencies": {
+		"rollup": ">=0.66.0 <2"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.2.2",
+		"@babel/preset-env": "^7.3.1",
+		"babel-jest": "^24.0.0",
+		"jest": "^24.0.0",
+		"rollup": "^1.27.10"
+	}
+}
