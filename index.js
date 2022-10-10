@@ -12,46 +12,48 @@ module.exports = function (options = {}) {
 	return {
 		name: "credits-log",
 
-		banner() {
-			const pkg = require(resolve(".", "package.json"));
+		async renderChunk(code, chunk) {
+			if (chunk.isEntry) {
+				const pkg = require(resolve(".", "package.json"));
 
-			if (!pkg.credits) {
-				console.log(
-					"No credits array found in your 'pkg.json' file. Run command 'credits-log help'."
-				);
-				return;
+				if (!pkg.credits) {
+					console.log(
+						"No credits array found in your 'pkg.json' file. Run command 'credits-log help'."
+					);
+					return;
+				}
+
+				const cl_data = pkg.credits.join("");
+				let authorEntry = `.replace("%a", "")`;
+				let contributorsEntry = `.replace("%c", "")`;
+				let licenseEntry = `.replace("%l", "")`;
+				const version = `.replace("%b", "Build: ${pkg.version}")`;
+
+				const name = pkg.projectName || pkg.name;
+				let projectName = `.replace("%p", "Project: ${name}")`;
+
+				if (pkg.author) {
+					const author = /string/gim.test(typeof pkg.author)
+						? "\\t" + pkg.author
+						: "\\t" + pkg.author.join("\\n");
+					authorEntry = `.replace("%a", "Author: \\n${author}")`;
+				}
+
+				if (pkg.contributors) {
+					const contributors = /string/gim.test(typeof pkg.contributors)
+						? "\\t" + pkg.contributors
+						: "\\t" + pkg.contributors.join("\\n\\t");
+
+					contributorsEntry = `.replace("%c", "Contributors: \\n${contributors}")`;
+				}
+
+				if (pkg.license)
+					licenseEntry = `.replace("%l", "License: ${pkg.license}")`;
+
+				const resultOut = String.raw`(function(){const d="${cl_data}";const c=['color:#808080;font-size:12px;font-family:"Helvetica Light", "Helvetica",Arial,sans-serif;font-weight:lighter;', d.match(new RegExp(".{1,4}", "g")).map((r) => String.fromCodePoint(r)).join("")${projectName}${authorEntry}${contributorsEntry}${licenseEntry}${version}];console.info("%c "+c[1],c[0])})();`;
+
+				return `${resultOut}${code}`;
 			}
-
-			const cl_data = pkg.credits.join("");
-			let authorEntry = `.replace("%a", "")`;
-			let contributorsEntry = `.replace("%c", "")`;
-			let licenseEntry = `.replace("%l", "")`;
-			const version = `.replace("%b", "Build: ${pkg.version}")`;
-
-			const name = pkg.projectName || pkg.name;
-			let projectName = `.replace("%p", "Project: ${name}")`;
-
-			if (pkg.author) {
-				const author = /string/gim.test(typeof pkg.author)
-					? "\\t" + pkg.author
-					: "\\t" + pkg.author.join("\\n");
-				authorEntry = `.replace("%a", "Author: \\n${author}")`;
-			}
-
-			if (pkg.contributors) {
-				const contributors = /string/gim.test(typeof pkg.contributors)
-					? "\\t" + pkg.contributors
-					: "\\t" + pkg.contributors.join("\\n\\t");
-
-				contributorsEntry = `.replace("%c", "Contributors: \\n${contributors}")`;
-			}
-
-			if (pkg.license)
-				licenseEntry = `.replace("%l", "License: ${pkg.license}")`;
-
-			const banner = String.raw`(function(){const d="${cl_data}";const c=['color:#808080;font-size:12px;font-family:"Helvetica Light", "Helvetica",Arial,sans-serif;font-weight:lighter;', d.match(new RegExp(".{1,4}", "g")).map((r) => String.fromCodePoint(r)).join("")${projectName}${authorEntry}${contributorsEntry}${licenseEntry}${version}];console.info("%c "+c[1],c[0])})()`;
-
-			return banner;
 		},
 
 		buildEnd() {
