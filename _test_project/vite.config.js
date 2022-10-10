@@ -1,8 +1,7 @@
 import { defineConfig } from "vite";
 import path from "path";
-import ViteRequireContext from "@originjs/vite-plugin-require-context";
 
-import { creditslog } from "credits-log";
+import creditslog from "credits-log";
 
 // https://vitejs.dev/config/
 export default defineConfig({

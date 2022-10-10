@@ -6,54 +6,48 @@ Created:  2022-09-29 22:03:30
 Desc: Credits-log plugin add credits to your porject             
 */
 
-const path = require("path");
-const readPackage = require("read-pkg");
-const { codeFrameColumns } = require("@babel/code-frame");
-const Worker = require("jest-worker").default;
+const { resolve } = require("path");
 
-const creditslog = (userOptions = {}) => {
+module.exports = function (options = {}) {
 	return {
 		name: "credits-log",
 
-		async banner() {
-			const package = await readPackage({
-				normalize: false,
-				...("" && { cwd: "" }),
-			});
+		banner() {
+			const pkg = require(resolve(".", "package.json"));
 
-			if (!package.credits) {
+			if (!pkg.credits) {
 				console.log(
-					"No credits array found in your 'package.json' file. Run command 'credits-log help'."
+					"No credits array found in your 'pkg.json' file. Run command 'credits-log help'."
 				);
 				return;
 			}
 
-			const cl_data = package.credits.join("");
+			const cl_data = pkg.credits.join("");
 			let authorEntry = `.replace("%a", "")`;
 			let contributorsEntry = `.replace("%c", "")`;
 			let licenseEntry = `.replace("%l", "")`;
-			const version = `.replace("%b", "Build: ${package.version}")`;
+			const version = `.replace("%b", "Build: ${pkg.version}")`;
 
-			const name = package.projectName || package.name;
+			const name = pkg.projectName || pkg.name;
 			let projectName = `.replace("%p", "Project: ${name}")`;
 
-			if (package.author) {
-				const author = /string/gim.test(typeof package.author)
-					? "\\t" + package.author
-					: "\\t" + package.author.join("\\n");
+			if (pkg.author) {
+				const author = /string/gim.test(typeof pkg.author)
+					? "\\t" + pkg.author
+					: "\\t" + pkg.author.join("\\n");
 				authorEntry = `.replace("%a", "Author: \\n${author}")`;
 			}
 
-			if (package.contributors) {
-				const contributors = /string/gim.test(typeof package.contributors)
-					? "\\t" + package.contributors
-					: "\\t" + package.contributors.join("\\n\\t");
+			if (pkg.contributors) {
+				const contributors = /string/gim.test(typeof pkg.contributors)
+					? "\\t" + pkg.contributors
+					: "\\t" + pkg.contributors.join("\\n\\t");
 
 				contributorsEntry = `.replace("%c", "Contributors: \\n${contributors}")`;
 			}
 
-			if (package.license)
-				licenseEntry = `.replace("%l", "License: ${package.license}")`;
+			if (pkg.license)
+				licenseEntry = `.replace("%l", "License: ${pkg.license}")`;
 
 			const banner = String.raw`(function(){const d="${cl_data}";const c=['color:#808080;font-size:12px;font-family:"Helvetica Light", "Helvetica",Arial,sans-serif;font-weight:lighter;', d.match(new RegExp(".{1,4}", "g")).map((r) => String.fromCodePoint(r)).join("")${projectName}${authorEntry}${contributorsEntry}${licenseEntry}${version}];console.info("%c "+c[1],c[0])})()`;
 
@@ -117,5 +111,3 @@ const creditslog = (userOptions = {}) => {
 		},
 	};
 };
-
-exports.creditslog = creditslog;

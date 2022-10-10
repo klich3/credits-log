@@ -25,19 +25,19 @@ and show it on debug panel.
 ## Install
 
 First install dependece you have two choices 
-   1) `npm i credits-log -g` with cli tool
-   2) `npm i credits-log --save-dev` only Vite / Rollup plugin
+   1) `npm i credits-log -g` for ***CLI*** tool
+   2) `npm i credits-log --save-dev` for Vite / Rollup plugin
 
 
 In your Vite or Rollup config file add import and use `creditslog()` function in plugins section like this: 
 
 ```javascript
-import { creditslog } from "credits-log"
+import creditslog from "credits-log"
 
 export default defineConfig({
     ...
     plugins: [
-		...
+		    ...
         creditslog()
         ...
     ],
@@ -95,3 +95,7 @@ like this:
 Rollup.js: 
   * https://rollupjs.org/guide/en/#exporting
   * https://rollupjs.org/guide/en/#a-simple-example
+
+### NPM Publish
+
+NPM publish command: `npm publish --access=public ./`

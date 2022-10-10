@@ -1,8 +1,9 @@
 {
 	"name": "credits-log",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "Rollup plugin to add credits message on debug console",
 	"main": "index.js",
+	"type": "commonjs",
 	"files": [
 		"bin",
 		"lib",
@@ -12,8 +13,7 @@
 		"credits-log": "./bin/credits-log"
 	},
 	"scripts": {
-		"test": "jest --runInBand --passWithNoTests",
-		"prepublish": "yarn test"
+		"test": "jest --runInBand --passWithNoTests"
 	},
 	"repository": {
 		"type": "git",
@@ -39,7 +39,6 @@
 	"dependencies": {
 		"@babel/code-frame": "^7.0.0",
 		"fs-extra": "^10.1.0",
-		"inquirer": "^9.1.2",
 		"interactive-cli": "^1.1.6",
 		"jest-worker": "^24.0.0",
 		"yargs": "17.5.1"
@@ -48,6 +47,7 @@
 		"rollup": ">=0.66.0 <2"
 	},
 	"devDependencies": {
+		"@rollup/plugin-node-resolve": "^10.0.0",
 		"@babel/core": "^7.2.2",
 		"@babel/preset-env": "^7.3.1",
 		"babel-jest": "^24.0.0",
