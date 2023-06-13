@@ -1,0 +1,26 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Credits Log
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - email: anton@sychev.xyz
+    given-names: Anton
+    family-names: Sychev
+    affiliation: too
+repository-code: 'https://github.com/klich3/credits-log'
+abstract: Rollup plugin to add credits message on debug console
+keywords:
+  - npm
+  - rollup
+  - authors
+  - rollup-plugin
+  - cli
+  - contributors
+  - humans
+license: MIT
+version: 1.0.2

@@ -1,7 +1,7 @@
 {
 	"name": "credits-log",
-	"version": "1.0.2",
-	"description": "Rollup plugin to add credits message on debug console",
+	"version": "1.0.3",
+	"description": "Rollup plugin to add credits message on debug console in frontend",
 	"main": "index.js",
 	"type": "commonjs",
 	"files": [
@@ -26,7 +26,10 @@
 		"cli",
 		"credits",
 		"contributors",
-		"humans"
+		"humans",
+		"authors",
+		"console.log",
+		"console"
 	],
 	"author": "Anthony Sychev <hello@dm211.com> (https://dm211.com)",
 	"bugs": "https://github.com/klich3/credits-log/issues",
