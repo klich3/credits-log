@@ -1,5 +1,9 @@
 # Credits-log | Vite / Rollup plugin | so as not to leave the creators in a drawer of oblivion
 
+
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+![npm](https://img.shields.io/npm/dm/credits-log?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fcredits-log)
+
 ![logotype](logotype/logo.svg?raw=true)
 
 "Credits-Log is a module for Rollup. When doing a "Build" it adds a small part of the code that shows the credits of creators in the console of the "FrontEnd" for example in Chrome, Firefox, IE or Safari.
