@@ -22,12 +22,10 @@
 >The message can have several lines and/or Logo in "ASCII".
 
 
-
 ## Installation process:
-  1) run `npm i credits-log -G` for global installation of the ***CLI*** tool.
-     1)  run `credits-log --help` to see the commands
-  2) run `npm i credits-log --save-dev` to integrate into your project
-  3) in your project you just have to edit the `vite.config.js` file.
+  1) run `npm i credits-log --save-dev` to integrate into your project
+     1) Test if CLI version is present if not run `npm link` 
+  2) in your project you just have to edit the `vite.config.js` file.
 
 ```javascript
 //vite.config.json
@@ -65,11 +63,7 @@ Read attributes from your `package.json` file:
 
 ## Cli 
 
-For preview all help options run `credits-log --help`
-
-* ***--install:*** Interactive installation step by step.
-* ***--uninstall:*** This option remove from your file next parameters: `projectName`, `credits`.
-* ***--check:*** It's show result of your configuration.
+Just run `credits-log` in your project folder
 
 ## Links ASCII Generators
 
@@ -113,6 +107,17 @@ like this:
 Rollup.js: 
   * https://rollupjs.org/guide/en/#exporting
   * https://rollupjs.org/guide/en/#a-simple-example
+  * https://www.npmjs.com/package/chalk
+  * https://github.com/sindresorhus/ora
+  * https://github.com/SBoudrias/Inquirer.js/tree/v8.0-legacy
+
+---
+
+### Develop
+
+Run `npm link` in source folder for globaly link this repo 
+
+---
 
 ### NPM Publish
 

@@ -1,12 +1,15 @@
 /*
-Author: <Anthony Sychev> (hello at dm211 dot com | a.sychev at jfranc dot studio) 
-Buy me a coffe: https://www.buymeacoffee.com/twooneone
-install.js (c) 2022 
+█▀ █▄█ █▀▀ █░█ █▀▀ █░█
+▄█ ░█░ █▄▄ █▀█ ██▄ ▀▄▀
+
+Author: <Anton Sychev> (anton at sychev dot xyz)
+install.js (c) 2022
 Created:  2022-10-06 18:18:17 
 Desc: Install write to local package file
+Docs: documentation
 */
 
-const Command = require("../command");
+import Command from "./command.mjs";
 
 class InstallCommand extends Command {
 	constructor() {

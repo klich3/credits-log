@@ -1,27 +1,36 @@
 /*
-Author: <Anthony Sychev> (hello at dm211 dot com | a.sychev at jfranc dot studio) 
-Buy me a coffe: https://www.buymeacoffee.com/twooneone
-index.js (c) 2022 
+█▀ █▄█ █▀▀ █░█ █▀▀ █░█
+▄█ ░█░ █▄▄ █▀█ ██▄ ▀▄▀
+
+Author: <Anton Sychev> (anton at sychev dot xyz)
+index.js (c) 2022
 Created:  2022-09-29 22:03:30 
-Desc: Credits-log plugin add credits to your porject             
+Desc: Credits-log plugin add credits to your porject   
+TODO: 
+	* correct shell global install script
+	* in vite plugin config if have multiply entries inputs, set where you want to add credits
 */
 
-//TODO: correct shell global install script
-//TODO: in vite plugin config if have multiply entries inputs, set where you want to add credits
+import path from "node:path";
+import pkg from "./package.json";
 
-const { resolve } = require("path");
-
-module.exports = function (options = {}) {
+module.exports = (options = {}) => {
 	return {
 		name: "credits-log",
 
+		/**
+		 * FrontEnd Part
+		 * @param {*} code
+		 * @param {*} chunk
+		 * @returns
+		 */
 		async renderChunk(code, chunk) {
 			if (chunk.isEntry) {
-				const pkg = require(resolve(".", "package.json"));
+				const pkg = pkg;
 
 				if (!pkg.credits) {
 					console.log(
-						"No credits array found in your 'pkg.json' file. Run command 'credits-log help'."
+						"No credits array found in your 'package.json' file. Run command 'credits-log help'."
 					);
 					return;
 				}
@@ -60,6 +69,7 @@ module.exports = function (options = {}) {
 		},
 
 		buildEnd() {
+			// Banner shows on build process
 			const banner = [
 				"0010003200320032003200320032003200320032003200320032004500640064006400580032003200320032",
 				"0032003200320061003700640064003700430032003200320032003200320032003200320032003200320032",
