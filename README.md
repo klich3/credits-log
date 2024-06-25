@@ -1,23 +1,33 @@
-# Credits-log | Vite / Rollup plugin | so as not to leave the creators in a drawer of oblivion
+# Credits-Log 
 
+*** Vite / Rollup plugin | so as not to leave the creators in a drawer of oblivion ***
 
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/dm/credits-log?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fcredits-log)
 
 ![logotype](logotype/logo.svg?raw=true)
 
-"Credits-Log is a module for Rollup. When doing a "Build" it adds a small part of the code that shows the credits of creators in the console of the "FrontEnd" for example in Chrome, Firefox, IE or Safari.
-
-It contains a CLI application from which you can add, remove or edit data to be displayed.
-The message can have several lines and/or Logo in "ASCII".
+> [!NOTE]
+> ***Credits-Log*** is a module / plugin / addon to add in your Vite configuration file. 
+>The module queries creator and contributor data directly from `package.json`. 
+>
+>It also saves the Graffiti in as another parameter.
+>
+>How it works: At compile time a mini function is added with a console.log that just shows the credits in your frontend.
 
 ![Screenshot](images/sceenshot.png)
 
+> [!NOTE]
+>It contains a CLI application from which you can add, remove or edit data to be displayed.
+>The message can have several lines and/or Logo in "ASCII".
+
+
+
 ## Installation process:
   1) run `npm i credits-log -G` for global installation of the ***CLI*** tool.
+     1)  run `credits-log --help` to see the commands
   2) run `npm i credits-log --save-dev` to integrate into your project
-  3) run `credits-log --help` to see the commands
-  4) in your project you just have to edit the `vite.config.js` file.
+  3) in your project you just have to edit the `vite.config.js` file.
 
 ```javascript
 //vite.config.json
@@ -34,18 +44,23 @@ export default defineConfig({
 });
 ```
 
-***Modifications that will be applied to your "Package.json" file***: Read attributes from your `package.json` file:
+---
+
+## Parameteres in `package.json`
+
+Read attributes from your `package.json` file:
+
 * `name: ""` (Optional)
-* `projectName: "Name of your project"`
+* `projectName: "Name of your project"` *(New custom name of your project)
 * `version: "0.0.1"`
-* `"author": "Anthony Sychev <hello at dm211 dot com> https://dm211.com | https://twooneone.xyz",`
-* `"author": ["Anthony Sychev <hello at dm211 dot com> https://dm211.com | https://twooneone.xyz", "..."],`
+* `"author": "Anton Sychev <anton at sychev dot xyz> https://sychev.xyz` (single line)
+* `"author": ["Anton Sychev <anton at sychev dot xyz> https://sychev.xyz", "...other author"],` (multiples authors)
 * `"contributors": [
 		"name <email> (https://webpage)",
         ...
 	]`
 * `license: "MIT"`
-* `credits`: []
+* `credits`: [] *(New custom parameter for save your ASCII logo / graffiti)
 
 
 ## Cli 
@@ -56,7 +71,7 @@ For preview all help options run `credits-log --help`
 * ***--uninstall:*** This option remove from your file next parameters: `projectName`, `credits`.
 * ***--check:*** It's show result of your configuration.
 
-## Links
+## Links ASCII Generators
 
 In this sites you can create your custom ASCII logotypes
 * https://fsymbols.com/generators/carty/
@@ -66,8 +81,8 @@ In this sites you can create your custom ASCII logotypes
 like this:
 
 ```javascript
-▀█▀ █░█░█ █▀█   █▀█ █▄░█ █▀▀   █▀█ █▄░█ █▀▀
-░█░ ▀▄▀▄▀ █▄█   █▄█ █░▀█ ██▄   █▄█ █░▀█ ██▄
+▀█▀ █░█░█ █▀█   █▀█ █▄░█ █▀▀   █▀█ █▄░█ █▀▀
+░█░ ▀▄▀▄▀ █▄█   █▄█ █░▀█ ██▄   █▄█ █░▀█ ██▄
 ```
 
 ```javascript
