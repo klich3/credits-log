@@ -6,6 +6,9 @@ Created:  2022-09-29 22:03:30
 Desc: Credits-log plugin add credits to your porject             
 */
 
+//TODO: correct shell global install script
+//TODO: in vite plugin config if have multiply entries inputs, set where you want to add credits
+
 const { resolve } = require("path");
 
 module.exports = function (options = {}) {
