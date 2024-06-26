@@ -12,7 +12,7 @@ authors:
     given-names: Anton
     family-names: Sychev
     affiliation: too
-repository-code: 'https://github.com/klich3/credits-log'
+repository-code: "https://github.com/klich3/credits-log"
 abstract: Rollup plugin to add credits message on debug console
 keywords:
   - npm
@@ -23,4 +23,4 @@ keywords:
   - contributors
   - humans
 license: MIT
-version: 1.0.2
+version: 1.0.4
