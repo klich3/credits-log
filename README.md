@@ -49,7 +49,6 @@ export default defineConfig({
 Read attributes from your `package.json` file:
 
 * `name: ""` (Optional)
-* `projectName: "Name of your project"` *(New custom name of your project)
 * `version: "0.0.1"`
 * `"author": "Anton Sychev <anton at sychev dot xyz> https://sychev.xyz` (single line)
 * `"author": ["Anton Sychev <anton at sychev dot xyz> https://sychev.xyz", "...other author"],` (multiples authors)
@@ -58,7 +57,9 @@ Read attributes from your `package.json` file:
         ...
 	]`
 * `license: "MIT"`
-* `credits`: [] *(New custom parameter for save your ASCII logo / graffiti)
+* Custom fields:
+  * `projectName: "Name of your project"`
+  * `credits`: [] "New custom parameter for save your ASCII logo / graffiti"
 
 
 ## Cli 

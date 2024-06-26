@@ -12,9 +12,9 @@ TODO:
 */
 
 import path from "node:path";
-import pkg from "./package.json";
+import fs from "node:fs";
 
-module.exports = (options = {}) => {
+export default (options = {}) => {
 	return {
 		name: "credits-log",
 
@@ -25,9 +25,10 @@ module.exports = (options = {}) => {
 		 * @returns
 		 */
 		async renderChunk(code, chunk) {
-			if (chunk.isEntry) {
-				const pkg = pkg;
+			let pkg = fs.readFileSync(path.resolve(".", "package.json"), "utf8");
+			pkg = JSON.parse(pkg);
 
+			if (chunk.isEntry) {
 				if (!pkg.credits) {
 					console.log(
 						"No credits array found in your 'package.json' file. Run command 'credits-log help'."
