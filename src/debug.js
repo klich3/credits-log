@@ -1,3 +1,17 @@
+/*
+█▀ █▄█ █▀▀ █░█ █▀▀ █░█
+▄█ ░█░ █▄▄ █▀█ ██▄ ▀▄▀
+
+Author: <Anton Sychev> (anton at sychev dot xyz)
+debug.js (c) 2024
+Created:  2024-07-23 22:19:00 
+Desc: Debug console log script
+Docs: 
+ 	1) Copy and paste in your browser conssole press enter and you have a final code.
+ 	2) Copy again and paste it to console and press enter.
+	3) Press F1 to show the credits.
+*/
+
 const pkg = {
 	projectName: "test",
 	authorEntry: "test 2",

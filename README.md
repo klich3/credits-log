@@ -42,7 +42,7 @@ export default defineConfig({
 });
 ```
 
-## Extension
+## Extension for Front End
 
 Now there is a new parameter to implement: `frontEnd: true`, that when placed in front end pressing the `F1` key will show a floating window with Credits of the project.
 
