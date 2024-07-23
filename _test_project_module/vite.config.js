@@ -47,5 +47,9 @@ export default defineConfig({
 			},
 		],
 	},
-	plugins: [creditslog()],
+	plugins: [
+		creditslog({
+			frontEnd: true,
+		}),
+	],
 });

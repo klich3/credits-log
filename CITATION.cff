@@ -13,7 +13,7 @@ authors:
     family-names: Sychev
     affiliation: too
 repository-code: "https://github.com/klich3/credits-log"
-abstract: Rollup plugin to add credits message on debug console
+abstract: Rollup plugin to add credits message on user browser debug console.
 keywords:
   - npm
   - rollup
@@ -22,5 +22,10 @@ keywords:
   - cli
   - contributors
   - humans
+  - credits
+  - log
+  - console
+  - vite
+  - frontend
 license: MIT
-version: 1.0.4
+version: 1.0.5

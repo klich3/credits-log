@@ -46,5 +46,7 @@ module.exports = defineConfig({
 			},
 		],
 	},
-	plugins: [creditslog()],
+	plugins: [creditslog({
+		frontEnd: true
+	})],
 });
