@@ -63,6 +63,8 @@ export default defineConfig({
 });
 ```
 
+![Screenshot modal](images/screenshot_modal.png)
+
 ---
 
 ## Parameteres in `package.json`
@@ -126,7 +128,8 @@ like this:
 ```
 
 ### DOCS
-Rollup.js: 
+
+***Rollup.js:***
   * https://rollupjs.org/guide/en/#exporting
   * https://rollupjs.org/guide/en/#a-simple-example
   * https://www.npmjs.com/package/chalk
