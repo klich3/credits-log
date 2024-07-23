@@ -19,7 +19,8 @@ export default (options = {}) => {
 		name: "credits-log",
 
 		/**
-		 * FrontEnd Part
+		 * FrontEnd Part get parts of credits from package.json and add to console.info
+		 * This is where the code that is injected into the build process and displayed in the console is compiled
 		 * @param {*} code
 		 * @param {*} chunk
 		 * @returns
@@ -63,14 +64,19 @@ export default (options = {}) => {
 				if (pkg.license)
 					licenseEntry = `.replace("%l", "License: ${pkg.license}")`;
 
-				const resultOut = String.raw`(function(){const d="${cl_data}";const c=['color:#808080;font-size:12px;font-family:"Helvetica Light", "Helvetica",Arial,sans-serif;font-weight:lighter;', d.match(new RegExp(".{1,4}", "g")).map((r) => String.fromCodePoint(r)).join("")${projectName}${authorEntry}${contributorsEntry}${licenseEntry}${version}];console.info("%c "+c[1],c[0])})();`;
+				const frontEnd = !options.frontEnd
+					? ""
+					: String.raw`window.addEventListener("keyup", (e) => {e.preventDefault();if(e.keyCode===112){const clBody=document.querySelector('.cl-body');if(clBody) clBody.remove();document.body.innerHTML += '<div class="cl-body" style="position: fixed;top: 50%;left: 50%;transform: translate(-50%, -50%);padding: 1em;font-size: 12px;font-family: Helvetica Light, Helvetica, Arial, sans-serif;font-weight: lighter;color: #808080;min-height: 200px;background: #fff;border-radius: 12px;border: 1px solid #ccccccb5;z-index: 999;"><span class="cl-x" style="position:absolute;top:10px;right:10px;cursor:pointer">&times;</span><div style="display:flex;justify-content:center;align-items:center;">'+c[2](c[1])+'</div></div>';document.querySelector('.cl-x').addEventListener("click", (e) => {e.preventDefault();if(e.target.classList.contains('cl-x')) document.querySelector('.cl-body').remove()});}})`;
+				const resultOut = String.raw`(function(){const d="${cl_data}",c=['color:#808080;font-size:12px;font-family:"Helvetica Light","Helvetica",Arial,sans-serif;font-weight:lighter;',d.match(new RegExp(".{1,4}", "g")).map((r) => String.fromCodePoint(r)).join("")${projectName}${authorEntry}${contributorsEntry}${licenseEntry}${version},(x)=>x.replace(new RegExp("(\<|\>)", "g"),"").replace(new RegExp("\t", "g"), "&emsp;").replace(new RegExp("\n", "g"),"<br>")];console.info("%c "+c[1],c[0]);${frontEnd}})();`;
 
 				return `${resultOut}${code}`;
 			}
 		},
 
+		/**
+		 * Banner shows on build process guy with right hand up.
+		 */
 		buildEnd() {
-			// Banner shows on build process
 			const banner = [
 				"0010003200320032003200320032003200320032003200320032004500640064006400580032003200320032",
 				"0032003200320061003700640064003700430032003200320032003200320032003200320032003200320032",

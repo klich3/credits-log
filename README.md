@@ -42,6 +42,27 @@ export default defineConfig({
 });
 ```
 
+## Extension
+
+Now there is a new parameter to implement: `frontEnd: true`, that when placed in front end pressing the `F1` key will show a floating window with Credits of the project.
+
+```javascript
+//vite.config.json
+import creditslog from "credits-log"
+
+export default defineConfig({
+    ...
+    plugins: [
+		    ...
+        creditslog({
+          frontEnd: true
+        })
+        ...
+    ],
+    ...
+});
+```
+
 ---
 
 ## Parameteres in `package.json`
