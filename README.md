@@ -147,3 +147,9 @@ Run `npm link` in source folder for globaly link this repo
 ### NPM Publish
 
 NPM publish command: `npm publish --access=public ./`
+
+---
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=klich3/credits-log&type=Date)](https://star-history.com/#klich3/credits-log&Date)
