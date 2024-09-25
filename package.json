@@ -1,6 +1,6 @@
 {
 	"name": "credits-log",
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"description": "Rollup plugin to add credits message on debug console in frontend",
 	"files": [
 		"LICENSE",
@@ -31,7 +31,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/klich3/credits-log"
+		"url": "git+https://github.com/klich3/credits-log.git"
 	},
 	"keywords": [
 		"rollup",
@@ -53,11 +53,11 @@
 	"license": "MIT",
 	"dependencies": {
 		"commander": "^12.1.0",
-		"inquirer": "^9.2.23",
-		"yargs": "17.5.1"
+		"inquirer": "^11.0.2",
+		"yargs": "^17.7.2"
 	},
 	"peerDependencies": {
-		"rollup": ">=0.66.0 <2"
+		"rollup": "^4.22.4"
 	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^15.3.0",
