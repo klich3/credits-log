@@ -53,11 +53,11 @@
 	"license": "MIT",
 	"dependencies": {
 		"commander": "^12.1.0",
-		"inquirer": "^9.2.23",
-		"yargs": "17.5.1"
+		"inquirer": "^11.0.2",
+		"yargs": "^17.7.2"
 	},
 	"peerDependencies": {
-		"rollup": ">=0.66.0 <2"
+		"rollup": "^4.22.4"
 	},
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^15.3.0",
