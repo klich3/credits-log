@@ -1,15 +1,17 @@
-# Credits-Log 
-
-*** Vite / Rollup plugin | so as not to leave the creators in a drawer of oblivion ***
+# credits-log 
 
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 ![npm](https://img.shields.io/npm/dm/credits-log?link=https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fcredits-log)
 
 ![logotype](logotype/logo.svg?raw=true)
 
+***Credits-Log*** is a module / plugin / addon to add in your Vite configuration file. 
+The module queries creator and contributor data directly from `package.json`. 
+
+*** Vite / Rollup plugin | so as not to leave the creators in a drawer of oblivion ***
+
+
 > [!NOTE]
-> ***Credits-Log*** is a module / plugin / addon to add in your Vite configuration file. 
->The module queries creator and contributor data directly from `package.json`. 
 >
 >It also saves the Graffiti in as another parameter.
 >
