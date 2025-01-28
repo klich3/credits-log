@@ -1,6 +1,6 @@
 {
 	"name": "credits-log",
-	"version": "1.0.9",
+	"version": "1.0.10",
 	"description": "Rollup plugin to add credits message on debug console in frontend",
 	"files": [
 		"LICENSE",
