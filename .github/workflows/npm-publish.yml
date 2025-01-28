@@ -10,8 +10,11 @@
 
 name: Publish Package to npmjs
 on:
-  release:
-    types: [published]
+  push:
+    branshes:
+      - master
+  #release:
+  #  types: [published]
 jobs:
   build:
     runs-on: ubuntu-latest
