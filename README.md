@@ -143,12 +143,14 @@ like this:
 ### Develop
 
 Run `npm link` in source folder for globaly link this repo 
+Man generator: `$ npm run man`
 
 ---
 
 ### NPM Publish
 
-NPM publish command: `npm publish --access=public ./`
+Local NPM publish command: `npm publish --access=public ./`
+CD/CI on push to git, it's automaticaly published to NPM
 
 ---
 

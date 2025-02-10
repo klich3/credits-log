@@ -11,11 +11,13 @@
 	],
 	"directories": {
 		"bin": "bin/*",
-		"src": "src/*"
+		"src": "src/*",
+		"man": "man"
 	},
 	"bin": {
 		"credits-log": "bin/index.js"
 	},
+	"man": "man/credits-log.1",
 	"main": "src/index.js",
 	"module": "src/index.mjs",
 	"exports": {
@@ -27,7 +29,9 @@
 	},
 	"scripts": {
 		"test": "jest --runInBand --passWithNoTests",
-		"watch": "npm run build -- --watch src"
+		"watch": "npm run build -- --watch src",
+		"prepublish": "npm run man",
+		"man": "marked-man man.md > ./man/credits-log.1"
 	},
 	"repository": {
 		"type": "git",
@@ -64,6 +68,8 @@
 	"devDependencies": {
 		"@rollup/plugin-node-resolve": "^15.3.0",
 		"jest": "^29.7.0",
+		"marked": "^15.0.7",
+		"marked-man": "^2.1.0",
 		"rollup": "^4.22.4"
 	}
 }
